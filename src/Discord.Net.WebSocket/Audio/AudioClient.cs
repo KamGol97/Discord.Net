@@ -289,6 +289,11 @@ namespace Discord.Audio
                             await _clientDisconnectedEvent.InvokeAsync(data.UserId);
                         }
                         break;
+
+                    case VoiceOpCode.Hello:
+                        ;
+                        await _audioLogger.DebugAsync("Received Hello message").ConfigureAwait(false);
+                        break;
                     default:
                         await _audioLogger.WarningAsync($"Unknown OpCode ({opCode})").ConfigureAwait(false);
                         return;
